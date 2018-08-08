@@ -32,4 +32,7 @@ class Game:
 
 		self.grid = new_grid
 
+	def __str__(self):
+		lines = [' '.join([str(item) for item in self.grid[i]]) for i in range(self.size)]
+		return '\n'.join(lines
 
