@@ -1,4 +1,8 @@
 from itertools import product
+import time
+
+PATTERN = [[1, 0], [1, 1], [1, 2]]
+
 
 class Game:
 	def __init__(self, size=10):
@@ -33,7 +37,7 @@ class Game:
 				if ( self.isActive(i, j) and (self.count_neigh(i, j) == 2) ) or (self.count_neigh(i, j) == 3):
 					new_grid[i][j] = 1
 				else:
-					print('Dead!')
+					# print('Dead!')
 					new_grid[i][j] = 0
 
 		for i in range(self.size):
@@ -45,3 +49,13 @@ class Game:
 		lines = [' '.join([str(item) for item in self.grid[i]]) for i in range(self.size)]
 		return '\n'.join(lines)
 
+	def live(self):
+		while True:
+			self.__str__()
+			self.step()
+			time.sleep(1)
+
+if __name__ == '__main__':
+	g = Game(10)
+	g.set_active(PATTERN)
+	g.live()
