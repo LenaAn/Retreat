@@ -90,6 +90,13 @@ class TestGame(unittest.TestCase):
 		print(g)
 		print()
 
+		g.step()
+
+		print(7)
+		print(g)
+		print()
+
+
 
 if __name__ == '__main__':
 	unittest.main()

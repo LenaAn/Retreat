@@ -30,9 +30,10 @@ class Game:
 
 		for i in range(self.size):
 			for j in range(self.size):
-				if (self.isActive(i, j) and (self.count_neigh(i, j) == 2)) or (self.count_neigh(i, j) == 3):
+				if ( self.isActive(i, j) and (self.count_neigh(i, j) == 2) ) or (self.count_neigh(i, j) == 3):
 					new_grid[i][j] = 1
 				else:
+					print('Dead!')
 					new_grid[i][j] = 0
 
 		for i in range(self.size):
