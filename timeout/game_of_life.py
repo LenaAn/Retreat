@@ -30,20 +30,17 @@ class Game:
 		new_grid = []
 		for i in range(self.size):
 			new_grid.append([0]*self.size)
-		 # = [ [0]*self.size for _ in range(self.size)]
 
 		for i in range(self.size):
 			for j in range(self.size):
 				if ( self.isActive(i, j) and (self.count_neigh(i, j) == 2) ) or (self.count_neigh(i, j) == 3):
 					new_grid[i][j] = 1
 				else:
-					# print('Dead!')
 					new_grid[i][j] = 0
 
 		for i in range(self.size):
 			for j in range(self.size):
 				self.grid[i][j] = new_grid[i][j]
-		# self.grid = new_grid
 
 	def __str__(self):
 		lines = [' '.join([str(item) for item in self.grid[i]]) for i in range(self.size)]
@@ -51,7 +48,7 @@ class Game:
 
 	def live(self):
 		while True:
-			print(str(self)) #.__str__()
+			print(str(self))
 			print()
 			self.step()
 			time.sleep(1)
