@@ -22,3 +22,5 @@ class Game:
 				count += self.grid[(i+di+self.size) % self.size][(j+dj+self.size) % self.size]
 		return count
 
+	def step(self)
+

@@ -4,6 +4,8 @@ from game_of_life import Game
 
 PATTERN = [[1, 0], [1, 1], [1, 2]]
 NEIGHS = [[3, 3, 3], [2, 2, 2], [3, 3, 3]]
+PATTERN2 = [[0, 1], [1, 1], [2, 1]]
+
 
 class TestGame(unittest.TestCase):
 
@@ -45,6 +47,19 @@ class TestGame(unittest.TestCase):
 		for i in range(3):
 			for j in range(3):
 				self.assertEqual(g.count_neigh(i, j), NEIGHS[i][j])
+
+	def test_step(self):
+		g = Game(3)
+		g.set_active(PATTERN)
+		g.step()
+
+		for i in range(3):
+			for j in range(3):
+				if [i, j] in PATTERN2:
+					self.assertEqual(g.isActive(i, j), 1)
+
+
+
 
 
 
