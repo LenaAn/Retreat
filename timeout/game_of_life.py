@@ -22,5 +22,14 @@ class Game:
 				count += self.grid[(i+di+self.size) % self.size][(j+dj+self.size) % self.size]
 		return count
 
-	def step(self)
+	def step(self):
+		new_grid = [[0]*self.size for _ in range(self.size)]
+
+		for i in range(self.size):
+			for j in range(self.size):
+				if (self.isActive(i, j) and (self.count_neigh(i, j) == 2)) or self.count_neigh(i, j) == 3:
+					new_grid[i][j] = 1
+
+		self.grid = new_grid
+
 
