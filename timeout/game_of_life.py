@@ -51,7 +51,8 @@ class Game:
 
 	def live(self):
 		while True:
-			self.__str__()
+			print(str(self)) #.__str__()
+			print()
 			self.step()
 			time.sleep(1)
 
