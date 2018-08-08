@@ -2,7 +2,8 @@ import unittest
 from game_of_life import Game
 
 
-PATTERN = [[0, 0], [1, 1], [3, 5]]
+PATTERN = [[1, 0], [1, 1], [1, 2]]
+NEIGHS = [[3, 3, 3], [2, 2, 2], [3, 3, 3]]
 
 class TestGame(unittest.TestCase):
 
@@ -37,6 +38,14 @@ class TestGame(unittest.TestCase):
 					self.assertEqual(g.isActive(i, j), 1)
 				else:
 					self.assertEqual(g.isActive(i, j), 0)
+
+	def test_count_neigh(self):
+		g = Game(3)
+		g.set_active(PATTERN)
+		for i in range(3):
+			for j in range(3):
+				self.assertEqual(g.count_neigh(i, j), NEIGHS[i][j])
+
 
 
 
