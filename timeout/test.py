@@ -28,10 +28,5 @@ class TestGame(unittest.TestCase):
 	    			self.assertEqual(g.isActive(i, j), 1)
 
 
-    	
-
-
-
-
 if __name__ == '__main__':
     unittest.main()
