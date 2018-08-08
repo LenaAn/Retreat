@@ -4,7 +4,9 @@ from game_of_life import Game
 
 PATTERN = [[1, 0], [1, 1], [1, 2]]
 NEIGHS = [[3, 3, 3], [2, 2, 2], [3, 3, 3]]
-PATTERN2 = [[0, 1], [1, 1], [2, 1]]
+PATTERN2 = [[0, 0], [0, 1], [0, 2], 
+			[1, 0], [1, 1], [1, 2],
+			[2, 0], [2, 1], [2, 2]]
 
 
 class TestGame(unittest.TestCase):
@@ -84,18 +86,8 @@ class TestGame(unittest.TestCase):
 	def test_print(self):
 		g = Game(3)
 		g.set_active(PATTERN)
-		g.step()
 
-		print(6)
-		print(g)
-		print()
-
-		g.step()
-
-		print(7)
-		print(g)
-		print()
-
+		self.assertEqual(g.__str__(), '0 0 0\n1 1 1\n0 0 0')
 
 
 if __name__ == '__main__':
