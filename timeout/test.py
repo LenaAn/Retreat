@@ -1,6 +1,9 @@
 import unittest
 from game_of_life import Game
 
+
+PATTERN = [[0, 0], [1, 1], [3, 5]]
+
 class TestGame(unittest.TestCase):
 
     def test_size(self):
@@ -14,6 +17,17 @@ class TestGame(unittest.TestCase):
     	self.assertEqual(g.size, 20)
     	self.assertEqual(len(g.grid), 20)
     	self.assertEqual(len(g.grid[0]), 20)
+
+    def test_set_active(self):
+    	g = Game(10)
+    	g.set_active(PATTERN)
+
+    	for i in range(10):
+    		for j in range(10):
+    			if [i, j] in PATTERN:
+	    			self.assertEqual(g.isActive(i, j), 1)
+
+
     	
 
 
